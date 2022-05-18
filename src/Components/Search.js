@@ -2,7 +2,7 @@ import SearchLayout from "../Layout/SearchLayout";
 
 const Search = () => {
     return (
-        <div className="border border-1 p-3 mt-5 d-flex">
+        <div className="border border-1 p-3 mt-5 d-flex align-items-end ">
             <SearchLayout>
                 <label htmlFor="search" className={"mb-1"}>Search By Title</label>
                 <input
@@ -30,6 +30,13 @@ const Search = () => {
                     <option value="Episode">Episode</option>
                 </select>
             </SearchLayout>
+            <div className={"pe-3"}>
+                <button className={"btn btn-outline-dark"} type={"submit"}>Search</button>
+            </div>
+            <div>
+                <button className={"btn btn-dark"} type={"submit"}>Reset</button>
+
+            </div>
         </div>
     )
 }
