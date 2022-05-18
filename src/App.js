@@ -1,5 +1,5 @@
-import Search from "./Components/Search";
-import Films from "./Components/Films";
+import Search from "./Components/Search/Search";
+import Films from "./Components/Film/Films";
 
 function App() {
     return (
