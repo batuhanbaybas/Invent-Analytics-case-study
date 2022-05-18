@@ -1,8 +1,3 @@
-import axios from "axios";
+export const BASE_URL = "https://www.omdbapi.com/?apikey=af684e5a&"
 
-export const Api = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
+

@@ -1,7 +1,17 @@
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {getFilms} from "../../Redux/features/filmSlice";
+
 const FilmPage = () => {
+    const [page, setPage] = useState(1);
+    const dispatch = useDispatch();
+    const handlePage = () => {
+        setPage(page + 1);
+        dispatch(getFilms({page}))
+    }
     return (
-        <button className={"btn btn-outline-dark mt-5 active"}>
-            1
+        <button onClick={handlePage} className={"btn btn-outline-dark mt-5 active"}>
+            {page}
         </button>
     )
 }
