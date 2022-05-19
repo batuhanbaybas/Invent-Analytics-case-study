@@ -1,22 +1,29 @@
 import SearchLayout from "../../Layout/SearchLayout";
-import {useState} from "react";
-import {useDispatch} from "react-redux";
-import {getFilms} from "../../Redux/features/filmSlice";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllFilms} from "../../Redux/features/filmSlice";
+import {selectPage} from "../../Redux/features/pageSlice";
 
 const Search = () => {
     const dispatch = useDispatch();
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("Pokemon");
     const [year, setYear] = useState("");
     const [type, setType] = useState("");
+    const page = useSelector(selectPage)
+
+    useEffect(() => {
+        dispatch(getAllFilms({title, year, type, page}))
+    }, [year, type, page, dispatch])
 
     const handleSearch = () => {
         if (title === "") {
             alert("Please enter a Title of the film");
         } else {
-            dispatch(getFilms({
+            dispatch(getAllFilms({
                 title,
                 year,
-                type
+                type,
+                page
             }));
         }
 
@@ -49,15 +56,17 @@ const Search = () => {
             </SearchLayout>
             <SearchLayout>
                 <label htmlFor="floatingSelect" className={"mb-1"}>Select Type</label>
-                <select value={type} onChange={(e) => setType(e.target.value)} className="form-select"
+                <select value={type} onChange={(e) => setType(e.target.value)}
+                        className="form-select"
                         id="floatingSelect">
-                    <option selected value="Movie">Movie</option>
+                    <option value={""}>All</option>
+                    <option value="Movie">Movie</option>
                     <option value="Series">Series</option>
                     <option value="Episode">Episode</option>
                 </select>
             </SearchLayout>
             <div className={"pe-3"}>
-                <button className={"btn btn-outline-dark"} onClick={handleSearch}>Search</button>
+                <button type={"submit"} className={"btn btn-outline-dark"} onClick={handleSearch}>Search</button>
             </div>
             <div>
                 <button className={"btn btn-dark"} type={"submit"}>Reset</button>

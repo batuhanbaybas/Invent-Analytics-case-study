@@ -1,11 +1,9 @@
-import Search from "./Components/Search/Search";
-import Films from "./Components/Film/Films";
+import HomePage from "./Pages/HomePage/HomePage";
 
 function App() {
     return (
         <div className={"container"}>
-            <Search/>
-            <Films/>
+            <HomePage/>
         </div>
     );
 }

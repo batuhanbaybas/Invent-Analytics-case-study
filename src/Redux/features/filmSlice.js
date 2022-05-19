@@ -2,7 +2,8 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {BASE_URL} from "../../Common/Apı/Api";
 import axios from "axios";
 
-export const getFilms = createAsyncThunk("getFilms", async ({title, page = 1, year, type}) => {
+export const getAllFilms = createAsyncThunk("getAllFilms", async ({title, page, year, type}) => {
+    console.log(title, page, year, type);
     console.log(page)
     const response = await axios.get(`${BASE_URL}s=${title}&page=${page}${year.trim().length > 0 ? `&y=${year}` : ""}${type ? `&type=${type}` : ""}`);
     return response.data;
@@ -20,19 +21,20 @@ const filmSlice = createSlice({
         films: [],
         film: {},
         status: "idle",
-        page: 1,
         error: null
     },
+
     extraReducers: {
-        [getFilms.pending]: (state, action) => {
+        [getAllFilms.pending]: (state, action) => {
             state.status = "pending";
+            state.films = [];
         },
-        [getFilms.fulfilled]: (state, action) => {
+        [getAllFilms.fulfilled]: (state, action) => {
             state.films = action.payload;
             state.status = "succeeded";
             state.page = action.payload.page;
         },
-        [getFilms.rejected]: (state, action) => {
+        [getAllFilms.rejected]: (state, action) => {
             state.status = "failed";
             state.error = action.error.message;
         },
@@ -40,8 +42,9 @@ const filmSlice = createSlice({
             state.status = "pending";
         },
         [getFilm.fulfilled]: (state, action) => {
-            state.film = action.payload;
             state.status = "succeeded";
+            state.film = action.payload;
+
         },
         [getFilm.rejected]: (state, action) => {
             state.status = "failed";
@@ -52,9 +55,10 @@ const filmSlice = createSlice({
 
 })
 export const selectAllFilms = state => state.film.films;
+export const selectTotalPage = state => Math.ceil(state.film.films.totalResults / 10);
 export const selectFilm = state => state.film.film;
 export const selectStatus = state => state.film.status;
-export const selectPage = state => state.film.page;
 export const selectError = state => state.film.error;
+
 
 export default filmSlice.reducer;
