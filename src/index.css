@@ -1,3 +1,11 @@
 .cursor {
     cursor: pointer;
 }
+
+.hover:hover {
+    background-color: whitesmoke;
+}
+
+.form-control:focus {
+    border-color: #ccc;
+}

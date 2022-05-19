@@ -13,7 +13,8 @@ const Search = () => {
 
     useEffect(() => {
         dispatch(getAllFilms({title, year, type, page}))
-    }, [year, type, page, dispatch])
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [year, type, page, dispatch,])
 
     const handleSearch = () => {
         if (title === "") {
@@ -31,14 +32,14 @@ const Search = () => {
     }
 
     return (
-        <div className="border border-1 p-3 mt-5 d-flex align-items-end ">
+        <div className="border border-1 p-3 mt-5 d-flex align-items-end justify-content-center ">
             <SearchLayout>
                 <label htmlFor="search" className={"mb-1"}>Search By Title</label>
                 <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     id={'search'}
-                    className="p-1 form-control"
+                    className="p-1 form-control:focus"
                     type="text"
                     placeholder="Title"
                 />
@@ -49,7 +50,7 @@ const Search = () => {
                     id={'year'}
                     value={year}
                     onChange={(e) => setYear(e.target.value)}
-                    className="p-1 form-control"
+                    className="p-1 form-control:focus"
                     type="text"
                     placeholder="Filter by Year"
                 />
@@ -67,10 +68,6 @@ const Search = () => {
             </SearchLayout>
             <div className={"pe-3"}>
                 <button type={"submit"} className={"btn btn-outline-dark"} onClick={handleSearch}>Search</button>
-            </div>
-            <div>
-                <button className={"btn btn-dark"} type={"submit"}>Reset</button>
-
             </div>
         </div>
     )

@@ -3,12 +3,10 @@ import {BASE_URL} from "../../Common/Apı/Api";
 import axios from "axios";
 
 export const getAllFilms = createAsyncThunk("getAllFilms", async ({title, page, year, type}) => {
-    console.log(title, page, year, type);
-    console.log(page)
     const response = await axios.get(`${BASE_URL}s=${title}&page=${page}${year.trim().length > 0 ? `&y=${year}` : ""}${type ? `&type=${type}` : ""}`);
     return response.data;
 })
-export const getFilm = createAsyncThunk("getFilm", async (id) => {
+export const getSingleFilm = createAsyncThunk("getSingleFilm", async (id) => {
     const response = await axios.get(`${BASE_URL}i=${id}`);
 
     return response.data;
@@ -25,7 +23,7 @@ const filmSlice = createSlice({
     },
 
     extraReducers: {
-        [getAllFilms.pending]: (state, action) => {
+        [getAllFilms.pending]: (state) => {
             state.status = "pending";
             state.films = [];
         },
@@ -38,15 +36,15 @@ const filmSlice = createSlice({
             state.status = "failed";
             state.error = action.error.message;
         },
-        [getFilm.pending]: (state, action) => {
+        [getSingleFilm.pending]: (state) => {
             state.status = "pending";
         },
-        [getFilm.fulfilled]: (state, action) => {
+        [getSingleFilm.fulfilled]: (state, action) => {
             state.status = "succeeded";
             state.film = action.payload;
 
         },
-        [getFilm.rejected]: (state, action) => {
+        [getSingleFilm.rejected]: (state, action) => {
             state.status = "failed";
             state.error = action.error.message;
         }
@@ -56,7 +54,7 @@ const filmSlice = createSlice({
 })
 export const selectAllFilms = state => state.film.films;
 export const selectTotalPage = state => Math.ceil(state.film.films.totalResults / 10);
-export const selectFilm = state => state.film.film;
+export const selectSingleFilm = state => state.film.film;
 export const selectStatus = state => state.film.status;
 export const selectError = state => state.film.error;
 

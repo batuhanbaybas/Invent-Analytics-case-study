@@ -18,9 +18,9 @@ const FilmPage = () => {
     return (
         <div className={"d-flex align-items-end mt-5 "}>
             {
-                page > 1 ? <button onClick={() => dispatch((setPage(1)))} className={"btn btn-outline-dark mx-3"}>
+                page > 1 && <button onClick={() => dispatch((setPage(1)))} className={"btn btn-outline-dark mx-3"}>
                     1
-                </button> : null
+                </button>
 
             }
             <button onClick={handlePage}

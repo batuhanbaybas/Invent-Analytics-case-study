@@ -1,10 +1,14 @@
 import HomePage from "./Pages/HomePage/HomePage";
+import {Route, Routes} from "react-router-dom"
+import DetailPage from "./Pages/DetailPage/DetailPage";
 
 function App() {
     return (
-        <div className={"container"}>
-            <HomePage/>
-        </div>
+        <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/:id" element={<DetailPage/>}/>
+        </Routes>
+
     );
 }
 
