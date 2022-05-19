@@ -31,13 +31,13 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install && yarn install
+  npm install or yarn install
 ```
 
 Start the dev server
 
 ```bash
-  npm run start && yarn start
+  npm run start or yarn start
 ```
 
 ## User Manual
