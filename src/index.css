@@ -9,3 +9,43 @@
 .form-control:focus {
     border-color: #ccc;
 }
+
+.detail_content_container {
+    height: 600px;
+}
+
+.detail-img {
+    width: 450px;
+}
+
+.font_size {
+    font-size: 20px;
+}
+
+.font_size_item {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .detail-img {
+        width: 100%;
+    }
+
+    .detail_content_container {
+        height: 400px;
+    }
+
+    .font_size {
+        font-size: 14px;
+    }
+
+    .font_size_item {
+        font-size: 12px;
+    }
+
+    .responsive {
+        padding: 10px 0;
+    }
+
+}
+

@@ -4,10 +4,12 @@ import DetailPage from "./Pages/DetailPage/DetailPage";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="/:id" element={<DetailPage/>}/>
-        </Routes>
+        <div className={"responsive"}>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/:id" element={<DetailPage/>}/>
+            </Routes>
+        </div>
 
     );
 }

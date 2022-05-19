@@ -1,11 +1,10 @@
 const DetailContent = (props) => {
     return (
-        <div className={"d-flex"} style={{height: "600px"}}>
-
+        <div className={"d-flex flex-column flex-md-row detail_content_container"}>
             <img src={props.film.Poster}
-                 style={{width: "450px"}} className="object-fit-cover rounded-3"
+                 className="object-fit-cover rounded-3 .detail-img"
                  alt="..."/>
-            <div className={"px-5 h-100 d-flex justify-content-between flex-column fs-5"}>
+            <div className={"px-5 h-100 w-100 d-flex justify-content-between flex-column font_size "}>
                 <div>Genre : <span>{props.film.Genre}</span></div>
                 <div>Writer : <span>{props.film.Writer}</span></div>
                 <div>Actors : <span>{props.film.Actors}</span></div>

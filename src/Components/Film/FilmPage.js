@@ -16,7 +16,7 @@ const FilmPage = () => {
 
     }
     return (
-        <div className={"d-flex align-items-end mt-5 "}>
+        <div className={"d-flex align-items-end mt-5 font_size_item"}>
             {
                 page > 1 && <button onClick={() => dispatch((setPage(1)))} className={"btn btn-outline-dark mx-3"}>
                     1

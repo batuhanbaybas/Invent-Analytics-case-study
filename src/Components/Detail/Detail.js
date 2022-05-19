@@ -9,7 +9,7 @@ const Detail = () => {
     const film = useSelector(selectSingleFilm)
     const loading = useSelector(selectStatus)
     return (
-        <div>
+        <div >
             {loading === "pending" ? <Loading/> :
                 <>
                     <Link className={"text-decoration-none text-dark mt-2 p-3 border hover text-center cursor"}

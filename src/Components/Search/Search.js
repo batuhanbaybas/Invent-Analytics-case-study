@@ -32,7 +32,8 @@ const Search = () => {
     }
 
     return (
-        <div className="border border-1 p-3 mt-5 d-flex align-items-end justify-content-center ">
+        <div
+            className="border border-1 p-3 mt-5 d-flex flex-md-row flex-column align-items-end justify-content-center ">
             <SearchLayout>
                 <label htmlFor="search" className={"mb-1"}>Search By Title</label>
                 <input
@@ -66,7 +67,7 @@ const Search = () => {
                     <option value="Episode">Episode</option>
                 </select>
             </SearchLayout>
-            <div className={"pe-3"}>
+            <div className={"pe-3 mt-2 mt-md-0"}>
                 <button type={"submit"} className={"btn btn-outline-dark"} onClick={handleSearch}>Search</button>
             </div>
         </div>
