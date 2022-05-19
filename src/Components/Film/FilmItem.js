@@ -14,6 +14,9 @@ const FilmItem = (props) => {
             <div className={"col text-center"}>
                 {props.film.Title}
             </div>
+            <div className={"col text-center"}>
+                {props.film.Type}
+            </div>
             <div className={"col text-end"}>
                 {props.film.Year}
             </div>
