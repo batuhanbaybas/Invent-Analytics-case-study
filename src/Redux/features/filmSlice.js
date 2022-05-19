@@ -19,7 +19,6 @@ const filmSlice = createSlice({
         films: [],
         film: {},
         status: "idle",
-        error: null
     },
 
     extraReducers: {
@@ -56,7 +55,6 @@ export const selectAllFilms = state => state.film.films;
 export const selectTotalPage = state => Math.ceil(state.film.films.totalResults / 10);
 export const selectSingleFilm = state => state.film.film;
 export const selectStatus = state => state.film.status;
-export const selectError = state => state.film.error;
 
 
 export default filmSlice.reducer;
