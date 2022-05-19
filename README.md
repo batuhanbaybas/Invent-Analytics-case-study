@@ -42,7 +42,7 @@ Start the dev server
 
 ## User Manual
 
-When the app start on home page. On the bottom of the page, you can see the page number if you click one
+The app start on home page. On the bottom of the page, you can see the page number if you click one
 of them your state change depends on your choice also as same as year and type. When you click on the movie, you
 redirect Detail if you want to go back to
 home page, you can click on the button in the top left corner.
